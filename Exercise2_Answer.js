@@ -10,7 +10,11 @@ function TodoList(name) {
       item.checkIfOverdue();
     });
   };
-  var intervalID = setInterval(this.overDueMonitor, 4000, this);
+  setInterval(this.overDueMonitor, 4000, this);
+
+  TodoList.prototype.getTodoList = function() {
+    return this.items;
+  };
 
   TodoList.prototype.printList = function() {
     console.log("");
@@ -133,7 +137,7 @@ todoList.removeItem(item2);
 todoList.printList();
 
 var todoList2 = new TodoList("Office");
-todoList2.name;
+todoList2.ame;
 todoList2.printList();
 var item5 = new LowPriorityItem("Fill out hours sheet", 2);
 todoList2.addItem(item5);
