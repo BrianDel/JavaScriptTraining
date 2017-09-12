@@ -1,0 +1,7 @@
+Exercise3
+
+Using what you have learned from the Modern Javascript course, upgrade the todo list to use the new language features.
+ - Arrow functions
+ - Classes
+ - let and const declarations
+ 

@@ -1,0 +1,11 @@
+Exercise2
+
+Convert the TodoList app to use the 'new' constructor for the list and items.
+Refactor the code to avoid functions objects from being created unnecessarily.
+Create a hierarchy for items, so that you can create HighPriorityItem, MediumPriorityItem or LowPriorityItem, without duplicating code.
+Add an overdue property to the items.
+Remembering what you learned in the scopes and closures video (https://www.youtube.com/watch?v=vYQ6ge4N4iM) add a feature that allows a due time to be set for an item and periodically updates the list to mark items that are overdue.
+  - For simplicity just pass a number of seconds to the Item constructor (e.g. new Item (description, priority, dueIn). Use this parameter to add to the current time (see Date object and parse function) to calculate the due time.
+  - Create a function that periodically checks (see setInterval function) the current time against the due time for each time in each list.
+
+  Try printing the 'this' object in various locations and ensuring that what is returned is what you would expect.

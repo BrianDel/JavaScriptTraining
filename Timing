@@ -1,0 +1,114 @@
+Introduction
+ — SLIDE 1 —
+10:00am
+ Why are you here?
+  - To build a new user experience that meets the expectations of our Customers
+  - To learn Modern UI Development
+    - To learn how to build a modern user experience
+    - To learn Javascript
+    - To learn React
+    - To learn the Development Environment for this type of development
+  - To learn the structure of the new UA Development Environment (as it exists today).
+
+  - What UA looks like today [Shane]
+  - What UA will look like [Shane]
+
+[20 Mins]
+
+
+— SLIDE 2 —
+
+
+10:20 Part 1: Learning Javascript.
+
+ A history of Javascript 15 Mins https://www.youtube.com/watch?v=wWi9lPEfNHc
+[15m]
+
+ The course chosen is JavaBrains, mainly because it is very good, but also because it is free.
+ Setup for JavaBrains course.
+ - Follow the advice in the video (Mozilla and ScratchPad) unless you are more comfortable using something else.
+ - Use the YouTube links instead of the JavaBrains.io site, as YouTube autoplays the next video, which is useful when the videos are quite short.
+ - Recommend getting used to playing back at a higher speed if you are able to.
+ Course
+ 1. Fundamentals https://www.youtube.com/watch?v=s6R0VEdoVt4&list=PLqq-6Pq4lTTYFJxC9NLJ7dSTI5Z1WWB6K
+[5m]
+
+   1) Section1-8 Introduction and DevEnv setup (25 mins) Quick Break. Everyone setup ok
+[25m]
+
+10:55 - Tea Break
+
+11:10
+   2) Section 9-18 Vars, Types, Type Coersion (40 mins) No Exercise, just type as you listen.
+12:00
+
+Lunch
+13:00
+   3) Objects and Arrays (60mins)
+   3a) Exercise (25mins)
+Number 2 with add modify delete of properties. http://www.w3resource.com/javascript-exercises/javascript-object-exercises.php
+Write a JavaScript program create an object with 4 properties name, surname, gender and age.
+Add a an nested object address with street, city and zip.
+Print the surname to the console.
+Delete the property surname
+Add an additional property region and give it a value
+Retrieve the zip of the nested object
+Delete the nested property
+
+Harder exercise that encompasses more
+
+2:25
+
+  4) Functions (60 mins)
+
+3:25
+  Break (10mins)
+
+3:35
+  5) Wrapping up (20 mins)
+  4a) Exercise (30 mins)
+
+Create a TODO List App.
+
+You can add any type of item to the list
+You can print the list of items in order
+Each item knows how to present itself
+You can removeItems by marking them as done (re-order the list).
+You can prioritise items, which re-orders the list
+
+4:00pm
+
+  5) Wrapping up
+
+
+ 2. Scopes and Closures https://www.youtube.com/watch?v=O312eN5J2bc&list=PLqq-6Pq4lTTZ_LyvzfrndUOkIvOF4y-_c
+ 3. Objects and Prototypes https://www.youtube.com/watch?v=fBpPfPjxOhc&list=PLqq-6Pq4lTTaflXUL0v3TSm86nodn0c_u
+
+ Exercises
+ You can put your learning into practice by picking exercises that align with the learning content from this link.
+ http://www.w3resource.com/javascript-exercises/
+
+— SLIDE 3 —
+
+Part 2: Learning React
+ Setup for React Course
+ Use Atom.io as your IDE.
+  - Add this plugin which will allow you run your terminal window in Atom, and see compile errors as you edit and save.
+    apm install platformio-ide-terminal
+    Restart Atom and open a terminal window using the Plugin menu, or you can click the small square icon with the ‘>’ near the bottom right.
+  - Start your React App from within this terminal.
+  - Now as you save (assuming you have setup the build with watchman as directed in the video) you will see the recompilation in the terminal window, and any failures that occur.
+ Use Chrome as your Client side IDE
+  - Keep DevTools Open
+  - Install the React Plugin - you can do this when asked during the course
+   - https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi?hl=en-GB
+
+The most efficient way to work is to play-the-video/view-the-app on you laptop screen and code in Atom on your monitor with the terminal plug-ing. This avoids tabbing back and forth between applications
+
+— SLIDE x —
+Part 4 - Modern UI Development
+…
+— SLIDE x —
+
+Part 5 - Working with the UA Dev Env.
+…
