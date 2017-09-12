@@ -1,43 +1,44 @@
-function TodoList(name) {
- this.name = name;
+function TodoList(listName) {
+ this.name = listName;
  this.items = [];
  this.getName = function(){
-   return name;
- };
+    return name;
+  };
 
   // Create a monitor that periodically checks for overdue items.
   TodoList.prototype.overDueMonitor = function(todoList) {
-    //console.log("Checking for overdue items in your " + todoList.name + " todo list...")
-    items = todoList.items;
-    items.forEach(function(item){
+    todoList.items.forEach(function(item){
       item.checkIfOverdue();
     });
   };
-  let intervalID = setInterval(this.overDueMonitor, 4000, this);
+  setInterval(this.overDueMonitor, 4000, this);
 
   TodoList.prototype.getTodoList = function() {
     return this.items;
   };
 
   TodoList.prototype.printList = function() {
-    console.log(`\n ${name} (${this.items.length}) \n------------`);
+    console.log(`\n${this.name} ( ${this.items.length} items) \n-------------------- `);
+    // Introduce arrow function
+    // Use desconstruction in the function parameter list to extract
+    // the values to be used.
     this.items.forEach(({description, priority, overdue}) =>
-      console.log(`[${priority}] .... ${description} ${overdue ? "(Overdue)" : "" }`)
+      console.log(`[${priority}] ${description} ${overdue ? "(Overdue)" : "" }`)
     );
   };
 
   TodoList.prototype.addItem = function(item) {
 
-    if (item!== null && item.getDescription()!==""){
+    if (item!== null && item.description!==""){
       this.items.push(item);
-      console.log(`Added item '${item.getDescription()}' to my '${name}' todo list`);
+      console.log(`Added item '${item.description}' to my '${name}' todo list`);
     } else {
-      console.log(`Failed to add an item to the ${name} list as it is missing a description`);
+      console.log(`***ERR: Failed to add an item to the ${name} list as it is missing a description`);
     }
   };
 
   TodoList.prototype.removeItem = function(removeItem) {
-     if(removeItem.getDescription()!==undefined) {
+     if(removeItem.description!==undefined) {
 
        this.items.splice(this.items.indexOf(removeItem),1);
      }
@@ -45,63 +46,59 @@ function TodoList(name) {
 
 }
 
-function HighPriorityItem(itemDescription, dueIn) {
-  const priority = "High";
-  return new Item(itemDescription, priority, dueIn);
+function HighPriorityItem({itemDescription, dueIn}) {
+  const itemPriority = "High";
+  return new Item({itemDescription, itemPriority, dueIn});
 
 }
 
-function MediumPriorityItem(itemDescription, dueIn) {
-  const priority = "Medium";
-  return new Item(itemDescription, priority, dueIn);
+function MediumPriorityItem({itemDescription, dueIn}) {
+  const itemPriority = "Medium";
+  return new Item({itemDescription, itemPriority, dueIn});
 
 }
 
-function LowPriorityItem(itemDescription, dueIn) {
-  const priority = "Low";
-  return new Item(itemDescription, priority, dueIn);
+function LowPriorityItem({itemDescription, dueIn}) {
+  const itemPriority = "Low";
+  return new Item({itemDescription, itemPriority, dueIn});
 
 }
+
 
 // Create an item with
 // description(mandatory)
 // itemPriority (High, Medium, Low)
 // dueIn number of seconds from now until item is due
-function Item(itemDescription, itemPriority, dueIn=0){
+function Item({itemDescription, itemPriority, dueIn = 0}) {
 
-  // Create instance variables using this
+  // Use const instead of this. Hides the field from outside the
+  // scope and makes it unchangeable
+  const priorityTypes = ["High","Medium","Low"];
+
+  // Pulic Fields
   this.description = "";
-  this.priorityTypes = ["High","Medium","Low"];
   this.priority = "Medium";
   this.overdue = false;
-  this.dueDate = null;
+
+  // Use let to block scope.
+  let dueDate = null;
   if (dueIn > 0) {
-    this.dueDate = (Date.parse(new Date()) + (dueIn * 1000));
+    dueDate = (Date.parse(new Date()) + (dueIn * 1000));
   }
 
   if (itemDescription === undefined || itemDescription === null || itemDescription.trim() === "") {
-    console.log("Error: Failed to create item, no description supplied");
+    console.log(`***ERR: Failed to create item, no description supplied`);
   } else {
     this.description = itemDescription;
   }
 
   if(itemPriority !== undefined) {
     // Ensure the priority is a valid selection
-    var array = this.priorityTypes.filter((item) => item == itemPriority);
-    this.priority = this.priorityTypes.filter((item) => item == itemPriority)[0]!=null ? array[0] : "Medium";
-
+    priorityTypes.forEach((type) =>
+      itemPriority == type ? this.priority = itemPriority : null
+    );
   }
 
-  // Share methods using the prototype reference.
-  Item.prototype.getDescription = function(){
-    return this.description;
-  };
-  Item.prototype.updateDescription = function(description){
-    this.description = description;
-  };
-  Item.prototype.getPriority = function(){
-      return this.priority;
-  };
   Item.prototype.checkIfOverdue = function() {
       if(this.overdue) {
         return true;
@@ -109,31 +106,31 @@ function Item(itemDescription, itemPriority, dueIn=0){
       if(this.dueDate == null) {
         return false;
       }
-      let now = Date.parse(new Date());
+      var now = Date.parse(new Date());
       this.overdue = this.dueDate - now < 0;
       return this.overdue;
   };
 }
 
-let todoList = new TodoList("Housework");
-todoList.getName;
+var todoList = new TodoList("Housework");
+todoList.name;
 todoList.printList();
-let item1 = new HighPriorityItem("Take out the bins",20);
+var item1 = new HighPriorityItem({itemDescription:'Take out the bins', dueIn:'20'});
 todoList.addItem(item1);
-let item2 = new MediumPriorityItem("Cut the grass", 40);
+var item2 = new MediumPriorityItem({itemDescription:'Cut the grass'});
 todoList.addItem(item2);
 todoList.printList();
-let item3 = new Item(null,"Low");
+var item3 = new Item({itemDescription:null, priority:"Low"});
 todoList.addItem(item3);
-let item4 = new Item("Do the shop","Low");
+var item4 = new LowPriorityItem({dueIn:5, itemDescription: 'Do the shop'});
 todoList.addItem(item4);
 todoList.printList();
 todoList.removeItem(item2);
 todoList.printList();
 
-let todoList2 = new TodoList("Office");
-todoList2.getName;
+var todoList2 = new TodoList("Office");
+todoList2.name;
 todoList2.printList();
-let item5 = new LowPriorityItem("Fill out hours sheet", 2);
+var item5 = new LowPriorityItem({itemDescription:'Fill out hours sheet', dueIn:2});
 todoList2.addItem(item5);
 todoList2.printList();
