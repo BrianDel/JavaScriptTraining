@@ -42,7 +42,6 @@ function newTodoList(name) {
 
 function newItem(itemDescription, itemPriority){
   var description;
-  var somethingElse = "sadfd";
   var priorityTypes = ["High","Medium","Low"];
   var priority = "Medium";
 
@@ -62,7 +61,6 @@ function newItem(itemDescription, itemPriority){
       }
     });
   }
-      console.log(priorityTypes);
 
   item = {
     "getDescription" : function(){
@@ -80,7 +78,6 @@ function newItem(itemDescription, itemPriority){
 }
 
 var todoList = newTodoList("My stuff to do");
-todoList.getName;
 todoList.printList();
 var item1 = newItem("Take out the bins","High");
 todoList.addItem(item1);
@@ -89,9 +86,10 @@ todoList.addItem(item2);
 var item3 = newItem(null,"Low");
 todoList.addItem(item3);
 todoList.printList();
-//todoList.removeItem(item2);
+todoList.removeItem(item2);
 todoList.printList();
 
+console.log("===========================")
 // More to think about...
 // can we change the values from  outside the function??
 console.log("Can I directly access the value of description?")
