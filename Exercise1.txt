@@ -3,7 +3,7 @@ Exercise one. Using what you learned from the introduction to javascript, create
 The list will allow you to add items, remove items and print the list of items.
 Items must have a description.
 Items can have a priority of high, Medium or Low, but will default to Medium in the absence of specifying.
-The list can accept items, but the must be properly constructed, otherwise an error is thrown.
+The list can accept items, but they must be properly constructed, otherwise an error is thrown.
 
 When complete you should be able to run the following code and see the results below that.
 
