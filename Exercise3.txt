@@ -1,8 +1,12 @@
 Exercise3
 
-Using what you have learned from the Modern Javascript course, upgrade the todo list to use the new language features.
+Using what you have learned from the Modern Javascript course, upgrade the todo list to use the new language features in ES6.
  - Template Strings
  - Arrow functions
- - Classes
+ - Classes/inheritance
  - let and const declarations
  - Object destructuring (hint, the item object)
+
+Add jsdoc to your environment and use it to generate documentation for your classes and methods.
+
+Break your classes into Modules.
