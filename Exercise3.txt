@@ -5,8 +5,11 @@ Using what you have learned from the Modern Javascript course, upgrade the todo 
  - Arrow functions
  - Classes/inheritance
  - let and const declarations
- - Object destructuring (hint, the item object)
+ - Object destructuring
 
-Add jsdoc to your environment and use it to generate documentation for your classes and methods.
-
-Break your classes into Modules.
+Add documentation to your classes.
+ - Add jsdoc to your environment
+  - npm install -g jsdoc3
+ - Write proper documentation for your classes and methods.
+  -http://usejsdoc.org/
+ - Generate the jsdocs, e.g. jsdoc *.js
